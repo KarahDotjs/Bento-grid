@@ -1,0 +1,222 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+:root {
+  /* color  */
+  --Purple-pale: hsl(254, 88%, 90%);
+  --Purple: hsl(256, 67%, 59%);
+
+  --Yellow-pale: hsl(31, 66%, 93%);
+  --Yellow: hsl(39, 100%, 71%);
+
+  --White: hsl(0, 0%, 100%);
+  --Black: hsl(0, 0%, 7%);
+  /* fonts-size */
+  --font-body: 1.125rem;
+  --font-heading: 2rem;
+  --font-w400: 400;
+  --font-w600: 600;
+  /* font-family */
+  --font-family: "DM Sans", sans-serif;
+}
+/* text styles */
+
+img {
+  max-width: 200px;
+  display: block;
+}
+h1 {
+  font-size: 3.5rem;
+  font-weight: var(--font-w600);
+}
+
+h2 {
+  font-size: var(--font-heading);
+  font-weight: var(--font-w600);
+  line-height: 0.95;
+}
+
+small {
+  font-size: var(--font-body);
+}
+
+.yellow-text {
+  color: var(--Yellow);
+}
+
+.purple-text {
+  color: var(--Purple);
+}
+
+/* GRID CONTAINER  */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* 3 column */
+  grid-template-rows: repeat(3, 13rem);
+  grid-template-areas:
+    "column1 column2 column3"
+    "column1 column2 column3"
+    "column1 column4 column4";
+
+  gap: 2rem;
+  width: min(95%, 70rem);
+  margin-inline: auto;
+}
+
+.bento-grid-container > *,
+.inside-element {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-item--element {
+  /* border: 2px solid black; */
+  border-radius: 0.375rem;
+  padding: 1rem;
+}
+.inside-element {
+  /* border: 2px solid yellow; */
+  grid-template-columns: repeat(2, 1fr);
+}
+/* .inside-element:nth-child(1) {
+  grid-template-columns: 0.95fr 2fr;
+} */
+
+.columnOne {
+  display: flex;
+  flex-direction: column;
+  /* border: 5px solid purple; */
+  gap: 2rem;
+  grid-area: column1;
+}
+
+.columnTwo {
+  /* border: 5px solid orange; */
+  grid-area: column2;
+}
+.columnThree {
+  border: 5px solid black;
+  grid-area: column3;
+}
+.columnFour {
+  border: 5px solid green;
+  grid-area: column4;
+}
+
+/* ui components  */
+.create {
+  /* display: grid;
+  place-content: center; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--Yellow-pale);
+}
+.content {
+  height: 100%;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* display: grid; */
+  /* place-content: center;  */
+
+  /* padding: 1.5rem; */
+  background-color: var(--Yellow);
+}
+.media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: var(--White);
+  text-align: center;
+  background-color: var(--Purple);
+}
+.media img {
+  max-width: 12rem;
+  margin-inline: auto;
+}
+.manage {
+  border: 2px solid black;
+  display: grid;
+  place-content: center;
+  position: relative;
+  overflow-x: hidden;
+  background-color: var(--clr-white);
+}
+.posting {
+  border: 2px solid red;
+}
